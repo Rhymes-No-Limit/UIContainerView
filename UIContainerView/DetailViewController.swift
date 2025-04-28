@@ -41,5 +41,11 @@ class TrackList: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewController = parent as? ViewController {
+            let trackTitle = imageNameArray[indexPath.row]
+            viewController.titleLabel.text = trackTitle
+            viewController.imageCover.image = UIImage(named: trackTitle)
+        }
+    }
 }
